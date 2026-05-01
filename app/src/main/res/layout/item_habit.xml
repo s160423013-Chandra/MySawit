@@ -8,6 +8,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ImageView
+        android:id="@+id/imgIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:contentDescription="Habit Icon" />
+
     <TextView
         android:id="@+id/txtName"
         android:textSize="18sp"
@@ -20,7 +28,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <!-- Row: label + angka -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,7 +50,6 @@
             android:textStyle="bold"/>
     </LinearLayout>
 
-    <!-- Progress bar (hanya 1!) -->
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"

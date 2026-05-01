@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mysawit.databinding.ItemHabitBinding
 import com.example.mysawit.model.Habit
+import com.example.mysawit.R
 import com.example.mysawit.viewmodel.DashboardViewModel
 
 class HabitAdapter(
@@ -26,6 +27,15 @@ class HabitAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val habit = list[position]
+        val iconRes = when (habit.iconName) {
+            "Running"  -> R.drawable.ic_running
+            "Water"    -> R.drawable.ic_water
+            "Sleep"    -> R.drawable.ic_sleep
+            "Food"     -> R.drawable.ic_food
+            "Book"     -> R.drawable.ic_book
+            else       -> R.drawable.ic_launcher_foreground
+        }
+        holder.binding.imgIcon.setImageResource(iconRes)
 
         holder.binding.txtName.text = habit.name
         holder.binding.txtDesc.text = habit.desc

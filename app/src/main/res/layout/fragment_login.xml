@@ -45,6 +45,16 @@
             android:text="Login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Incorrect username or password!"
+            android:textColor="#FF0000"
+            android:textAlignment="center"
+            android:layout_marginTop="8dp"
+            android:visibility="gone" />
     </LinearLayout>
 
 </FrameLayout>

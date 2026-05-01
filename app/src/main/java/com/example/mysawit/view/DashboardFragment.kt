@@ -9,6 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mysawit.databinding.FragmentDashboardBinding
 import com.example.mysawit.viewmodel.DashboardViewModel
+import com.example.mysawit.R
+import androidx.navigation.fragment.findNavController
 
 class DashboardFragment : Fragment() {
 
@@ -29,12 +31,15 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this)[DashboardViewModel::class.java]
+        viewModel = ViewModelProvider(requireActivity())[DashboardViewModel::class.java]
 
         adapter = HabitAdapter(mutableListOf(), viewModel)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
+        binding.fabAdd.setOnClickListener {
+            findNavController().navigate(R.id.actionNewHabitFragment)
+        }
 
         viewModel.habitList.observe(viewLifecycleOwner) {
             adapter.updateData(it)
